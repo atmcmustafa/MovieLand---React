@@ -50,11 +50,11 @@ const TopRated = () => {
           <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 overflow-hidden pb-8">
             {movie.map((movie) => (
               <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <Card
-                  className={"relative h-full card-container cursor-pointer"}
-                >
+                <Card className={"relative  card-container cursor-pointer"}>
                   <div className="absolute bottom-0 left-0 bg-black/30 p-4 card-content">
-                    <h1 className="text-3xl font-bold">{movie.title}</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold">
+                      {movie.title}
+                    </h1>
                     <div className="flex items-center gap-x-8">
                       <h2 className="text-xl">{movie.release_date}</h2>
                       <span className="text-xl">
@@ -62,7 +62,7 @@ const TopRated = () => {
                         <i className="fas fa-star ml-2 text-yellow-400"></i>
                       </span>
                     </div>
-                    <p className="text-base italic line-clamp-6 ">
+                    <p className="text-base italic line-clamp-3 ">
                       {movie.overview}
                     </p>
                   </div>
