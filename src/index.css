@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+
+  /* @apply dark:bg-slate-900 bg-white text-white  */
+}
+
+
+.active {
+  font-weight: bold;
+}
+
+.card-content {
+  @apply opacity-0 invisible -bottom-[999px] overflow-hidden duration-300 
+}
+
+.card-container:hover .card-content{
+  @apply opacity-100 visible bottom-0 duration-300 overflow-hidden
+
+} 
