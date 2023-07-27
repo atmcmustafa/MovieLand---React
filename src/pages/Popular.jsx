@@ -43,9 +43,7 @@ const Popular = () => {
           <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 overflow-hidden pb-8">
             {popular.map((movie) => (
               <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <Card
-                  className={"relative h-full card-container cursor-pointer"}
-                >
+                <Card className={"relative  card-container cursor-pointer"}>
                   <div className="absolute bottom-0 left-0 bg-black/30 p-4 card-content">
                     <h1 className="text-3xl font-bold">{movie.title}</h1>
                     <div className="flex items-center gap-x-8">
