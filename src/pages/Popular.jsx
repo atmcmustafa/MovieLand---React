@@ -38,7 +38,9 @@ const Popular = () => {
     <>
       <div className={`${theme ? "dark" : ""} `}>
         <div className="dark:bg-slate-900  bg-white dark:text-white">
-          <h1 className="container mx-auto text-3xl py-6 ">Popular</h1>
+          <h1 className="container mx-auto text-3xl py-6 text-black dark:text-white">
+            Popular
+          </h1>
           {isLoading && <Loading />}
           <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 overflow-hidden pb-8">
             {popular.map((movie) => (

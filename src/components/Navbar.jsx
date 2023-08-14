@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 const Navbar = () => {
@@ -10,13 +10,13 @@ const Navbar = () => {
   };
   return (
     <div className={`${theme ? "dark" : ""} `}>
-      <div className=" dark:bg-slate-900 bg-white dark:text-white text-black duration-200">
+      <div className="fixed top-0 w-full dark:bg-slate-900 bg-white dark:text-white text-black duration-200 z-40">
         <div
           className={` flex container mx-auto justify-between items-center py-6`}
         >
-          <h1 className="dark:text-white font-bold text-4xl ">
+          <Link to={"/"} className="dark:text-white font-bold text-4xl">
             Movie<span className="text-yellow-400">Land</span>
-          </h1>
+          </Link>
           <div className=" gap-x-8 text-lg hidden md:flex">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/popular">Popular</NavLink>
@@ -43,28 +43,27 @@ const Navbar = () => {
               onClick={() => setToggle((prev) => !prev)}
               className={`fas  ${toggle ? "fa-x" : "fa-bars"} `}
             ></i>
-            {toggle && (
-              <div
-                className={`flex flex-col gap-4 py-8 transition-all duration-300 absolute z-30 w-full bg-black text-xl text-center left-0 text-white ${
-                  toggle
-                    ? "top-20 visible duration-200 opacity-100 "
-                    : "-top-[999px] invisible duration-200 opacity-50"
-                }`}
-              >
-                <NavLink onClick={handleNavLinkClick} to="/">
-                  Home
-                </NavLink>
-                <NavLink onClick={handleNavLinkClick} to="/popular">
-                  Popular
-                </NavLink>
-                <NavLink onClick={handleNavLinkClick} to="/toprated">
-                  Top Rated
-                </NavLink>
-                <NavLink onClick={handleNavLinkClick} to="/upcoming">
-                  Upcoming
-                </NavLink>
-              </div>
-            )}
+
+            <div
+              className={`flex flex-col gap-4 py-8 transition-all duration-300 absolute z-40 w-full bg-black text-xl text-center left-0 text-white ${
+                toggle
+                  ? "top-20 visible duration-200 opacity-100 "
+                  : "-top-[999px] invisible duration-200 opacity-50"
+              }`}
+            >
+              <NavLink onClick={handleNavLinkClick} to="/">
+                Home
+              </NavLink>
+              <NavLink onClick={handleNavLinkClick} to="/popular">
+                Popular
+              </NavLink>
+              <NavLink onClick={handleNavLinkClick} to="/toprated">
+                Top Rated
+              </NavLink>
+              <NavLink onClick={handleNavLinkClick} to="/upcoming">
+                Upcoming
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>

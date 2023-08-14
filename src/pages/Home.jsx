@@ -25,10 +25,15 @@ const Home = () => {
 
   return (
     <>
-      <div className={`${theme ? "dark" : ""} dark:bg-slate-900 bg-white `}>
-        <div className="dark:bg-slate-900 bg-white text-black dark:text-white ">
+      <div
+        className={`${
+          theme ? "dark" : ""
+        } dark:bg-slate-900 bg-white relative pt-20`}
+      >
+        <div className="dark:bg-slate-900 bg-white text-white dark:text-white relative">
           {isLoading && <Loading />}
           <Carousel
+            className="z-40"
             showThumbs={false}
             autoPlay={true}
             transitionTime={3}
@@ -38,6 +43,7 @@ const Home = () => {
             {popular.map((movie) => (
               <Link key={movie.id} to={`/movie/${movie.id}`}>
                 <div className="h-[500px] md:h-[800px] overflow-hidden relative">
+                  <div className="absolute top-0 left-0 right-0 bottom-0 h-full w-full bg-black/40"></div>
                   <img
                     className="h-full object-cover w-full"
                     src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}

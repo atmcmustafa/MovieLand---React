@@ -10,6 +10,10 @@ body {
   /* @apply dark:bg-slate-900 bg-white text-white  */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 .active {
   font-weight: bold;

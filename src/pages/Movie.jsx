@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Popular from "./Popular";
 import { ThemeContext } from "../context/ThemeContext";
@@ -8,6 +8,7 @@ const Movie = () => {
   const [currentMovie, setCurrentMovie] = useState([]);
   const { id } = useParams();
   const { theme } = useContext(ThemeContext);
+  const location = useLocation();
   const getApi = async () => {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`;
     await fetch(url)
@@ -22,12 +23,17 @@ const Movie = () => {
     getApi();
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [location]);
+
   return (
     <>
       <div className={`${theme ? "dark" : ""} duration-200`}>
         <div className="dark:bg-slate-900 text-black bg-white dark:text-white">
           <div className="container mx-auto">
             <div className="h-[900px] md:h-[600px]  relative">
+              <div className="absolute top-0 left-0 right-0 bottom-0 h-[900px] md:h-[600px]  w-full bg-black/40"></div>
               <img
                 className="w-[600px] h-[600px] md:h-full md:w-full object-cover "
                 src={`https://image.tmdb.org/t/p/original/${currentMovie?.backdrop_path}`}
